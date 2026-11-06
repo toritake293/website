@@ -475,3 +475,42 @@
       color: #64748B;
       margin-top: 0.25rem;
     }
+
+    /* --- いいねボタン --- */
+.art-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.like-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s;
+}
+
+.like-btn:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+  background-color: #FEF2F2;
+}
+
+/* 押し済み状態のハート */
+.like-btn.liked {
+  color: var(--color-red);
+  border-color: var(--color-red);
+  background-color: #FEF2F2;
+}
+
+.like-btn.liked svg {
+  fill: var(--color-red); /* ハートの中身を赤く塗る */
+}
