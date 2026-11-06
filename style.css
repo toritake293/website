@@ -1,0 +1,477 @@
+    /* --- Base Variables & Settings --- */
+    :root {
+      --color-red: #EF4444;
+      --color-red-hover: #DC2626;
+      --color-green: #84CC16;
+      --color-green-hover: #65A30D;
+      --color-bg: #F8FAFC;
+      --color-card-bg: #FFFFFF;
+      --color-text: #334155;
+      --color-text-muted: #64748B;
+      --color-border: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background-corlor: va(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* --- Header --- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header-inner {
+      max-width: 1152px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .site-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1E293B;
+      text-decoration: none;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .site-logo:hover {
+      opacity: 0.8;
+    }
+
+
+    .intro-text {
+      font-size: 12px;
+    }
+   
+
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+  
+
+    @media (min-width: 768px) {
+      .nav-desktop {
+        display: flex;
+      }
+    }
+
+    .nav-desktop button,
+    .nav-desktop a {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-desktop button:hover,
+    .nav-desktop a:hover {
+      color: var(--color-red);
+    }
+
+    .nav-link-ext {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .icon-sm {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    .menu-btn-mobile {
+      display: block;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      color: #475569;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .menu-btn-mobile {
+        display: none;
+      }
+    }
+
+    .nav-mobile {
+      border-bottom: 1px solid var(--color-border);
+      background-color: #FFFFFF;
+      padding: 0.5rem 1rem 1rem;
+    }
+
+    .nav-mobile button,
+    .nav-mobile a {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 0.5rem 0;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #334155;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* --- Main Layout --- */
+    .main-content {
+      flex-grow: 1;
+      max-width: 1152px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* --- Nav Cards Grid (Side-by-Side Layout) --- */
+    .nav-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .nav-card {
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .nav-card-fanart:hover {
+      border-color: var(--color-red);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-card-original:hover {
+      border-color: var(--color-green);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 20px 0px 20px;
+    }
+
+    .nav-card-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1E293B;
+      transition: color 0.2s;
+    }
+
+    .nav-card-fanart:hover .nav-card-header h2 {
+      color: var(--color-red);
+    }
+
+    .nav-card-original:hover .nav-card-header h2 {
+      color: var(--color-green);
+    }
+
+    .arrow-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #94A3B8;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .nav-card:hover .arrow-icon {
+      transform: translateX(4px);
+    }
+
+    .nav-card-fanart:hover .arrow-icon { color: var(--color-red); }
+    .nav-card-original:hover .arrow-icon { color: var(--color-green); }
+
+    /* Badges */
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      padding: 10px 20px 15px 20px;
+    }
+
+    .badge {
+      font-weight: 500;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+    }
+
+    .badge-red {
+      background-color: #FEF2F2;
+      color: var(--color-red);
+    }
+
+    .badge-green {
+      background-color: #F7FEE7;
+      color: var(--color-green);
+    }
+
+    .badge-gray {
+      background-color: #F1F5F9;
+      color: #334155;
+    }
+
+    /* --- Calendar Widget --- */
+    .calendar-container {
+      padding: 15px 20px 20px 20px;
+      margin-top: auto;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .calendar-title {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      margin-bottom: 8px;
+    }
+
+    .calendar-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .cal-cell {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+    }
+
+    /* 投稿あり（■） */
+    .cal-cell.active-red {
+      background-color: var(--color-red);
+    }
+
+    .cal-cell.active-green {
+      background-color: var(--color-green);
+    }
+
+    /* 投稿なし（□） */
+    .cal-cell.empty {
+      background-color: #F1F5F9;
+      border: 1px solid var(--color-border);
+    }
+
+    /* --- Gallery Pages --- */
+    .page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 1rem;
+    }
+
+    .page-header h1 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #1E293B;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .art-card {
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: 1rem;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.2s;
+    }
+
+    .art-card:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .art-card-img-wrapper {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background-color: #F1F5F9;
+      position: relative;
+    }
+
+    .art-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .art-card:hover .art-card-img {
+      transform: scale(1.05);
+    }
+
+    .new-tag {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background-color: var(--color-red);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .art-card-body {
+      padding: 1rem;
+    }
+
+    .art-card-title {
+      font-weight: 700;
+      color: #1E293B;
+      transition: color 0.2s;
+    }
+
+    .art-card:hover .art-card-title {
+      color: var(--color-red);
+    }
+
+    .art-card-date {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      margin-top: 0.25rem;
+    }
+
+    /* --- Modal Lightbox --- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      max-width: 56rem;
+      max-height: 90vh;
+      background-color: #FFFFFF;
+      border-radius: 1rem;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: #F1F5F9;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.5rem;
+      color: #475569;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+      background-color: #E2E8F0;
+    }
+
+    .modal-img {
+      max-height: 70vh;
+      width: auto;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 0.5rem;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-caption {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .modal-caption h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #1E293B;
+    }
+
+    .modal-caption p {
+      font-size: 0.75rem;
+      color: #64748B;
+      margin-top: 0.25rem;
+    }

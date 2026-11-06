@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, noai, noimageindex">
+  <title>Torisan's Head</title>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" onclick="showPage('top'); return false;" class="site-logo">
+        Torisan's Head
+      </a>
+      
+      <div class="intro-text">
+        <p>こちらはとりたけの製作したイラストのまとめ倉庫です。</p>
+      </div>
+      
+      <nav class="nav-desktop">
+        <button onclick="showPage('top')">Top</button>
+        <button onclick="showPage('fanart')">Fanart</button>
+        <button onclick="showPage('original')">Original</button> 
+        <a href="https://x.com/doyansu_girl" target="_blank" rel="noopener" class="nav-link-ext">
+        X (Twitter)<i data-lucide="external-link" class="icon-sm"></i> 
+        </a>
+        <a href="https://bsky.app/profile/toritake293.bsky.social" target="_blank" rel="noopener" class="nav-link-ext">
+        Bluesky <i data-lucide="external-link" class="icon-sm"></i>
+        </a>
+        <a href="https://mijime2in2draw.booth.pm/" target="_blank" rel="noopener" class="nav-link-ext">
+          BOOTH <i data-lucide="external-link" class="icon-sm"></i>
+        </a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button onclick="toggleMobileMenu()" class="menu-btn-mobile" aria-label="Toggle Navigation Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobile-menu" class="nav-mobile hidden">
+      <button onclick="showPage('top'); toggleMobileMenu()">Top</button>
+      <button onclick="showPage('fanart'); toggleMobileMenu()">Fanart</button>
+      <button onclick="showPage('original'); toggleMobileMenu()">Original</button>
+      <a href="https://x.com/doyansu_girl" target="_blank" rel="noopener">X (Twitter)</a>
+       <a href="https://bsky.app/profile/toritake293.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+      <a href="https://mijime2in2draw.booth.pm/" target="_blank" rel="noopener">BOOTH</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- TOP PAGE -->
+    <section id="page-top" class="page-section">
+      <div class="nav-cards-grid">
+        
+        <!-- Fanart Card -->
+        <div onclick="showPage('fanart')" class="card nav-card nav-card-fanart">
+          <div>
+            <div class="nav-card-header">
+              <h2>Fanart</h2>
+              <i data-lucide="arrow-right" class="arrow-icon"></i>
+            </div>
+            <div class="badge-group">
+              <span class="badge badge-red">
+                総展示数: <strong id="top-fanart-total">0</strong>点
+              </span>
+              <span class="badge badge-green">
+                今月の投稿: <strong id="top-fanart-month">0</strong>点
+              </span>
+            </div>
+          </div>
+          <!-- Monthly Calendar (Fanart) -->
+          <div class="calendar-container">
+            <p class="calendar-title">今月の投稿カレンダー</p>
+            <div id="top-fanart-calendar" class="calendar-grid"></div>
+          </div>
+        </div>
+
+        <!-- Original Card -->
+        <div onclick="showPage('original')" class="card nav-card nav-card-original">
+          <div>
+            <div class="nav-card-header">
+              <h2>Original</h2>
+              <i data-lucide="arrow-right" class="arrow-icon"></i>
+            </div>
+            <div class="badge-group">
+              <span class="badge badge-gray">
+                総展示数: <strong id="top-original-total">0</strong>点
+              </span>
+              <span class="badge badge-green">
+                今月の投稿: <strong id="top-original-month">0</strong>点
+              </span>
+            </div>
+          </div>
+          <!-- Monthly Calendar (Original) -->
+          <div class="calendar-container">
+            <p class="calendar-title">今月の投稿カレンダー</p>
+            <div id="top-original-calendar" class="calendar-grid"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FANART PAGE -->
+    <section id="page-fanart" class="page-section hidden">
+      <div class="page-header">
+        <h1>Fanart</h1>
+        <div class="badge-group">
+          <span class="badge badge-red">
+            総展示数: <span id="fanart-total-count">0</span>点
+          </span>
+          <span class="badge badge-green">
+            今月の投稿: <span id="fanart-month-count">0</span>点
+          </span>
+        </div>
+      </div>
+      <div id="fanart-gallery" class="gallery-grid"></div>
+    </section>
+
+    <!-- ORIGINAL PAGE -->
+    <section id="page-original" class="page-section hidden">
+      <div class="page-header">
+        <h1>Original</h1>
+        <div class="badge-group">
+          <span class="badge badge-gray">
+            総展示数: <span id="original-total-count">0</span>点
+          </span>
+          <span class="badge badge-green">
+            今月の投稿: <span id="original-month-count">0</span>点
+          </span>
+        </div>
+      </div>
+      <div id="original-gallery" class="gallery-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- Modal Lightbox -->
+  <div id="image-modal" class="modal-backdrop hidden" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button onclick="closeModal()" class="modal-close-btn" aria-label="Close modal">
+        <i data-lucide="x"></i>
+      </button>
+      <img id="modal-img" src="" alt="" class="modal-img">
+      <div class="modal-caption">
+        <h3 id="modal-title"></h3>
+        <p id="modal-date"></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
