@@ -42,6 +42,7 @@
           BOOTH <i data-lucide="external-link" class="icon-sm"></i>
         </a>
       </nav>
+      
 
       <!-- Mobile menu button -->
       <button onclick="toggleMobileMenu()" class="menu-btn-mobile" aria-label="Toggle Navigation Menu">
@@ -83,6 +84,7 @@
               </span>
             </div>
           </div>
+
           <!-- Monthly Calendar (Fanart) -->
           <div class="calendar-container">
             <p class="calendar-title">今月の投稿カレンダー</p>
@@ -128,9 +130,20 @@
             今月の投稿: <span id="fanart-month-count">0</span>点
           </span>
         </div>
+                  <!-- タグフィルターボタン群 -->
+        <div id="fanart-tag-filters" class="tag-filter-group">
+          <button class="tag-btn active" data-tag="all" onclick="filterFanart('all')">すべて</button>
+          <button class="tag-btn" data-tag="コミック風" onclick="filterFanart('コミック風')">コミック風</button>
+          <button class="tag-btn" data-tag="デフォルメ" onclick="filterFanart('デフォルメ')">デフォルメ</button>
+
+        </div>
       </div>
       <div id="fanart-gallery" class="gallery-grid"></div>
     </section>
+      </div>
+      <div id="fanart-gallery" class="gallery-grid"></div>
+    </section>
+    
 
     <!-- ORIGINAL PAGE -->
     <section id="page-original" class="page-section hidden">
@@ -166,3 +179,4 @@
 
 </body>
 </html>
+

@@ -248,7 +248,7 @@
       align-items: center;
       gap: 0.75rem;
       font-size: 0.875rem;
-      padding: 10px 20px 15px 20px;
+      padding: 10px 20px 15px 0px;
     }
 
     .badge {
@@ -513,4 +513,60 @@
 
 .like-btn.liked svg {
   fill: var(--color-red); /* ハートの中身を赤く塗る */
+}
+
+.tag-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tag-btn {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-btn:hover {
+  border-color: var(--color-red);
+  color: var(--color-red);
+  background-color: #FEF2F2;
+}
+
+.tag-btn.active {
+  background-color: var(--color-red);
+  color: #FFFFFF;
+  border-color: var(--color-red);
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+/* --- Card Tag Badge & Meta Alignment --- */
+.art-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.art-tag {
+  font-size: 0.7rem;
+  color: var(--color-red);
+  background-color: #FEF2F2;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.no-art-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: 3rem 0;
 }
